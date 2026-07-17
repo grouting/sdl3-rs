@@ -246,6 +246,11 @@ impl<'a> TextureSamplerBinding<'a> {
         self
     }
 
+    pub(crate) fn with_texture_raw(mut self, texture: *mut SDL_GPUTexture) -> Self {
+        self.inner.texture = texture;
+        self
+    }
+
     /// The sampler to bind.
     pub fn with_sampler(mut self, sampler: &'a Sampler) -> Self {
         self.inner.sampler = sampler.raw();
